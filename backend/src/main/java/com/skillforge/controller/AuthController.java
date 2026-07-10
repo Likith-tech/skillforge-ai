@@ -1,8 +1,13 @@
 package com.skillforge.controller;
 
 import com.skillforge.dto.AuthResponse;
+import com.skillforge.dto.ApiResponse;
+import com.skillforge.dto.ForgotPasswordRequest;
+import com.skillforge.dto.ForgotPasswordResponse;
 import com.skillforge.dto.LoginRequest;
+import com.skillforge.dto.RefreshTokenRequest;
 import com.skillforge.dto.RegisterRequest;
+import com.skillforge.dto.ResetPasswordRequest;
 import com.skillforge.dto.UserResponse;
 import com.skillforge.service.AuthService;
 import jakarta.validation.Valid;
@@ -25,12 +30,37 @@ public class AuthController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse register(@Valid @RequestBody RegisterRequest request) {
-        return authService.register(request);
+    public ApiResponse<UserResponse> register(@Valid @RequestBody RegisterRequest request) {
+        return ApiResponse.success("Registration successful", authService.register(request));
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@Valid @RequestBody LoginRequest request) {
-        return authService.login(request);
+    public ApiResponse<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
+        return ApiResponse.success("Login successful", authService.login(request));
+    }
+
+    @PostMapping("/refresh")
+    public ApiResponse<AuthResponse> refresh(@Valid @RequestBody RefreshTokenRequest request) {
+        return ApiResponse.success("Token refreshed", authService.refresh(request));
+    }
+
+    @PostMapping("/logout")
+    public ApiResponse<Void> logout(@Valid @RequestBody RefreshTokenRequest request) {
+        authService.logout(request);
+        return ApiResponse.success("Logout successful", null);
+    }
+
+    @PostMapping("/forgot-password")
+    public ApiResponse<ForgotPasswordResponse> forgotPassword(@Valid @RequestBody ForgotPasswordRequest request) {
+        return ApiResponse.success(
+                "If the email exists, reset instructions have been prepared",
+                authService.forgotPassword(request.getEmail())
+        );
+    }
+
+    @PostMapping("/reset-password")
+    public ApiResponse<Void> resetPassword(@Valid @RequestBody ResetPasswordRequest request) {
+        authService.resetPassword(request);
+        return ApiResponse.success("Password reset successful", null);
     }
 }

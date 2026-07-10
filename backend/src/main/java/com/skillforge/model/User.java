@@ -38,6 +38,15 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
+    @Column(name = "email_notifications_enabled")
+    private Boolean emailNotificationsEnabled = true;
+
+    @Column(name = "in_app_notifications_enabled")
+    private Boolean inAppNotificationsEnabled = true;
+
+    @Column(name = "theme_preference")
+    private String themePreference = "SYSTEM";
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

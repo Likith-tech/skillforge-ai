@@ -1,0 +1,11 @@
+package com.skillforge.model;
+
+public enum NotificationType {
+    INTERVIEW_REMINDER,
+    APPLICATION_UPDATE,
+    OFFER_NOTIFICATION,
+    RESUME_ANALYSIS_COMPLETED,
+    JOB_RECOMMENDATION_UPDATE,
+    SHORTLIST_UPDATE,
+    GENERAL
+}

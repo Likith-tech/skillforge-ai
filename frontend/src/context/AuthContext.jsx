@@ -1,10 +1,11 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { loginUser, registerUser } from "../services/authService";
+import { loginUser, logoutUser, registerUser } from "../services/authService";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
+  const [refreshToken, setRefreshToken] = useState(() => localStorage.getItem("refreshToken"));
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("user");
     return stored ? JSON.parse(stored) : null;
@@ -13,8 +14,10 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     const data = await loginUser({ email, password });
     localStorage.setItem("token", data.token);
+    localStorage.setItem("refreshToken", data.refreshToken);
     localStorage.setItem("user", JSON.stringify(data.user));
     setToken(data.token);
+    setRefreshToken(data.refreshToken);
     setUser(data.user);
     return data.user;
   };
@@ -23,23 +26,41 @@ export function AuthProvider({ children }) {
     return registerUser({ name, email, password, role });
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await logoutUser(refreshToken);
+    } finally {
+      clearSession();
+    }
+  };
+
+  const clearSession = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
     setToken(null);
+    setRefreshToken(null);
     setUser(null);
+  };
+
+  const updateUser = (nextUser) => {
+    localStorage.setItem("user", JSON.stringify(nextUser));
+    setUser(nextUser);
   };
 
   const value = useMemo(
     () => ({
       token,
+      refreshToken,
       user,
       isAuthenticated: Boolean(token),
       login,
       register,
       logout,
+      clearSession,
+      updateUser,
     }),
-    [token, user]
+    [token, refreshToken, user]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

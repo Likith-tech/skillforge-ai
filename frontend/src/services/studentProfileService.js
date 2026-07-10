@@ -14,3 +14,8 @@ export const updateStudentProfile = async (profile) => {
   const response = await apiClient.put("/student/profile", profile);
   return response.data;
 };
+
+export const getProfileCompletion = async () => {
+  const response = await apiClient.get("/student/profile/completion");
+  return response.data;
+};

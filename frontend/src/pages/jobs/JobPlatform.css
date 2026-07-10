@@ -1,0 +1,258 @@
+.job-platform-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+  color: #16202f;
+}
+
+.job-platform-shell {
+  border: 1px solid rgba(20, 33, 56, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(255, 183, 77, 0.18), transparent 32%),
+    linear-gradient(180deg, #fffdf7 0%, #f6f4ef 100%);
+  box-shadow: 0 24px 70px rgba(16, 24, 40, 0.08);
+}
+
+.job-platform-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px 30px 22px;
+  border-bottom: 1px solid rgba(20, 33, 56, 0.08);
+}
+
+.job-platform-header h1,
+.job-platform-section h2,
+.job-platform-section h3,
+.job-platform-card h3 {
+  margin: 0;
+}
+
+.job-platform-header p,
+.job-platform-copy p,
+.job-platform-card p,
+.job-platform-section p {
+  color: #5a6574;
+}
+
+.job-platform-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.job-button,
+.job-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 15px;
+  border-radius: 999px;
+  border: 0;
+  background: #153b63;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.job-button.secondary,
+.job-link.secondary {
+  background: rgba(21, 59, 99, 0.08);
+  color: #153b63;
+}
+
+.job-button.ghost,
+.job-link.ghost {
+  background: transparent;
+  color: #153b63;
+  border: 1px solid rgba(21, 59, 99, 0.18);
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px 28px 30px;
+}
+
+.job-card,
+.job-panel,
+.job-form {
+  border: 1px solid rgba(20, 33, 56, 0.1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 35px rgba(16, 24, 40, 0.05);
+}
+
+.job-card {
+  padding: 18px;
+}
+
+.job-stat {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f6ef 100%);
+}
+
+.job-stat strong {
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.job-section {
+  grid-column: span 7;
+}
+
+.job-sidebar {
+  grid-column: span 5;
+}
+
+.job-list,
+.job-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.job-list-item {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(20, 33, 56, 0.08);
+  background: #ffffff;
+}
+
+.job-list-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.job-tag-row,
+.job-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.job-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(21, 59, 99, 0.08);
+  color: #153b63;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.job-chip.warning {
+  background: rgba(183, 93, 14, 0.12);
+  color: #8b4a00;
+}
+
+.job-chip.success {
+  background: rgba(5, 150, 105, 0.12);
+  color: #0f6b4a;
+}
+
+.job-form {
+  padding: 18px;
+}
+
+.job-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.job-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.job-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #506076;
+}
+
+.job-field input,
+.job-field select,
+.job-field textarea {
+  border: 1px solid rgba(20, 33, 56, 0.14);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #ffffff;
+}
+
+.job-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.job-full {
+  grid-column: 1 / -1;
+}
+
+.job-muted {
+  color: #667182;
+}
+
+.job-divider {
+  height: 1px;
+  background: rgba(20, 33, 56, 0.08);
+  margin: 18px 0;
+}
+
+.job-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 18px;
+  padding: 0 28px 24px;
+}
+
+.job-hero-panel {
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid rgba(20, 33, 56, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+@media (max-width: 900px) {
+  .job-stat,
+  .job-section,
+  .job-sidebar,
+  .job-hero {
+    grid-column: span 12;
+  }
+
+  .job-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .job-platform-header,
+  .job-hero {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .job-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

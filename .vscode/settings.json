@@ -1,0 +1,26 @@
+{
+  "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-17",
+      "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot",
+      "default": true
+    }
+  ],
+  "maven.executable.path": "C:\\Users\\Acchu\\Tools\\apache-maven-3.9.16\\bin\\mvn.cmd",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot"
+    },
+    {
+      "environmentVariable": "MAVEN_HOME",
+      "value": "C:\\Users\\Acchu\\Tools\\apache-maven-3.9.16"
+    }
+  ],
+  "terminal.integrated.env.windows": {
+    "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot",
+    "MAVEN_HOME": "C:\\Users\\Acchu\\Tools\\apache-maven-3.9.16",
+    "Path": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot\\bin;C:\\Users\\Acchu\\Tools\\apache-maven-3.9.16\\bin;C:\\Program Files\\PostgreSQL\\18\\bin;C:\\Program Files\\nodejs;C:\\Program Files\\Git\\cmd;${env:Path}"
+  }
+}

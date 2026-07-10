@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   createStudentProfile,
+  getProfileCompletion,
   getStudentProfile,
   updateStudentProfile,
 } from "../../services/studentProfileService";
@@ -40,6 +41,7 @@ const textAreas = [
 function StudentProfile() {
   const [form, setForm] = useState(initialForm);
   const [profileExists, setProfileExists] = useState(false);
+  const [completion, setCompletion] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -63,6 +65,8 @@ function StudentProfile() {
           linkedinUrl: profile.linkedinUrl || "",
         });
         setProfileExists(true);
+        const completionData = await getProfileCompletion();
+        setCompletion(completionData);
       } catch (loadError) {
         if (loadError.response?.status !== 404) {
           setError("Unable to load profile. Please try again.");
@@ -113,6 +117,8 @@ function StudentProfile() {
         linkedinUrl: savedProfile.linkedinUrl || "",
       });
       setProfileExists(true);
+      const completionData = await getProfileCompletion();
+      setCompletion(completionData);
       setMessage("Profile saved successfully.");
     } catch (saveError) {
       setError(saveError.response?.data?.message || "Unable to save profile.");
@@ -131,6 +137,24 @@ function StudentProfile() {
         <h1>Student Profile</h1>
         <p>Manage your professional details for SkillForge AI.</p>
       </section>
+
+      {completion && (
+        <section className="profile-completion-panel">
+          <div className="profile-completion-heading">
+            <strong>Profile Completion</strong>
+            <span>{completion.completionPercentage}%</span>
+          </div>
+          <div className="profile-progress-track">
+            <div
+              className="profile-progress-fill"
+              style={{ width: `${completion.completionPercentage}%` }}
+            />
+          </div>
+          {completion.missingFields?.length > 0 && (
+            <p>Missing: {completion.missingFields.join(", ")}</p>
+          )}
+        </section>
+      )}
 
       <form className="student-profile-form" onSubmit={handleSubmit}>
         {error && <div className="form-alert form-alert-error">{error}</div>}

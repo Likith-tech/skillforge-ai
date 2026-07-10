@@ -1,0 +1,181 @@
+.resume-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  color: #18202f;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.resume-header h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.resume-header p {
+  margin: 0;
+  color: #5f6b7a;
+}
+
+.resume-actions,
+.resume-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resume-button,
+.resume-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  background: #2266dd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.resume-button.secondary,
+.resume-link-button.secondary {
+  color: #18202f;
+  background: #edf2fb;
+}
+
+.resume-button.danger {
+  background: #b91c1c;
+}
+
+.resume-button:disabled {
+  background: #8ea7d5;
+  cursor: not-allowed;
+}
+
+.resume-panel {
+  padding: 24px;
+  border: 1px solid #d7dde7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.resume-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.resume-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.resume-meta-item span,
+.resume-upload-label span {
+  color: #5f6b7a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resume-meta-item strong {
+  overflow-wrap: anywhere;
+}
+
+.resume-upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.resume-upload-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resume-upload-label input {
+  border: 1px solid #c9d1de;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.resume-empty {
+  color: #5f6b7a;
+}
+
+.resume-preview-frame {
+  width: 100%;
+  min-height: 70vh;
+  border: 1px solid #d7dde7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.resume-history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.resume-history-table th,
+.resume-history-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e1e7f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.resume-history-table th {
+  color: #5f6b7a;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .resume-page {
+    padding: 24px 14px;
+  }
+
+  .resume-header {
+    flex-direction: column;
+  }
+
+  .resume-header h1 {
+    font-size: 26px;
+  }
+
+  .resume-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-history-table,
+  .resume-history-table tbody,
+  .resume-history-table tr,
+  .resume-history-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .resume-history-table thead {
+    display: none;
+  }
+
+  .resume-history-table tr {
+    border-bottom: 1px solid #e1e7f0;
+    padding: 12px 0;
+  }
+
+  .resume-history-table td {
+    border: 0;
+    padding: 6px 0;
+  }
+}

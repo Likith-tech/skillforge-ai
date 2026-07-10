@@ -44,7 +44,8 @@
 }
 
 .profile-field input,
-.profile-field textarea {
+.profile-field textarea,
+.profile-field select {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #c9d1de;
@@ -60,10 +61,46 @@
 }
 
 .profile-field input:focus,
-.profile-field textarea:focus {
+.profile-field textarea:focus,
+.profile-field select:focus {
   outline: 2px solid #4f8cff;
   outline-offset: 1px;
   border-color: #4f8cff;
+}
+
+.profile-completion-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 18px;
+  border: 1px solid #d7dde7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.profile-completion-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-progress-track {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9edf5;
+}
+
+.profile-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #2266dd;
+}
+
+.profile-completion-panel p {
+  margin: 0;
+  color: #5f6b7a;
 }
 
 .student-profile-form button {
