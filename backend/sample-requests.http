@@ -1,0 +1,52 @@
+### SkillForge AI - sample API requests
+### Base URL
+@baseUrl = http://localhost:8080
+
+### 1. Register a STUDENT (role defaults to STUDENT if omitted)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Asha Rao",
+  "email": "asha.rao@example.com",
+  "password": "SecurePass123",
+  "role": "STUDENT"
+}
+
+### 2. Register a RECRUITER
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Neel Kapoor",
+  "email": "neel.kapoor@example.com",
+  "password": "SecurePass123",
+  "role": "RECRUITER"
+}
+
+### 3. Attempt to self-register as ADMIN (expect 400)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Someone",
+  "email": "someone@example.com",
+  "password": "SecurePass123",
+  "role": "ADMIN"
+}
+
+### 4. Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "asha.rao@example.com",
+  "password": "SecurePass123"
+}
+
+### 5. Get profile (paste the token from register/login above)
+GET {{baseUrl}}/auth/profile
+Authorization: Bearer PASTE_TOKEN_HERE
+
+### 6. Profile without a token (expect 401)
+GET {{baseUrl}}/auth/profile
